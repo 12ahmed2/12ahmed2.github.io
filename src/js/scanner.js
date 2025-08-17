@@ -2,7 +2,7 @@
 const startButton = document.getElementById('start-button');
 const stopButton = document.getElementById('stop-button');
 const resultElement = document.getElementById('result');
-const videoElement = document.getElementById('reader');// hidden video element
+const videoElement = document.createElement('video'); // hidden video element
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
