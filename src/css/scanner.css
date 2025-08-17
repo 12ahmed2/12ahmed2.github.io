@@ -19,7 +19,8 @@
 }
 
 /* Styles for the video and canvas to fit the container */
-#reader{
+#reader,
+#canvas {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,4 +55,3 @@
     background-color: #4B6070;
     color: #FEFFFF;
 }
-
