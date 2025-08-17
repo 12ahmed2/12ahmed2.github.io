@@ -20,7 +20,8 @@ async function startScanning() {
     await videoElement.play();
 
     // Show canvas
-    videoElement.style.display = 'block';
+    canvas.style.display = 'block';
+    videoElement.style.display = 'none';
 
     // Start scanning loop
     animationFrameId = requestAnimationFrame(drawCanvas);
