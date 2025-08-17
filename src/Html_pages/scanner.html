@@ -39,15 +39,16 @@
     <!-- end of navbar -->
 
     <section id="qr-reader">
+        <div class="scanner-video-container">
+            <video id="reader" playsinline></video>
+            <canvas id="canvas"></canvas>
+        </div>
 
-        <video id="reader"></video>
         <div id="controls">
             <button id="start-button">Start Scanning</button>
             <button id="stop-button">Stop Scanning</button>
         </div>
         <div id="qr-result">Scanned Code: <span id="result"></span></div>
-        <canvas id="canvas"></canvas>
-
     </section>
 
     
