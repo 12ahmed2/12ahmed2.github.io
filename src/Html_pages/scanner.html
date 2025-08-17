@@ -6,6 +6,7 @@
     <title>Website Project</title>
     
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/scanner.css">
 </head>
 <body>
 
@@ -37,11 +38,23 @@
     </nav>
     <!-- end of navbar -->
 
-    <div id="qr-reader" style="width:300px"></div>
-    <div id="qr-result">Scanned Code: <span id="result"></span></div>
+    <section id="qr-reader">
 
-    <script src="https://unpkg.com/html5-qrcode"></script>
+        <div id="reader"></div>
+        <div id="controls">
+            <button id="start-button">Start Scanning</button>
+            <button id="stop-button">Stop Scanning</button>
+        </div>
+        <div id="qr-result">Scanned Code: <span id="result"></span></div>
+        <canvas id="canvas"></canvas>
+
+    </section>
+
+    
+
     <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
     <script src="../js/scanner.js"></script>
+    
 </body>
 </html>
