@@ -1,0 +1,41 @@
+#qr-reader{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #F5F5F7; /* deep navy background */
+  padding: 1rem;
+}
+
+#qr-reader #reader {
+  width: 40vw;
+  height: 40vh;
+  border: 2px solid #58C8C4; /* aqua border */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit Button */
+#qr-reader #controls button {
+  margin: 1vh;
+  padding: 5px;
+  background-color: #58C8C4; /* aqua button */
+  color: #162E51; /* navy text */
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+#qr-reader #controls button:hover {
+  background-color: #4B6070; /* darker aqua on hover */
+  color: #FEFFFF; /* white text on hover */
+}
+
+
+#canvas {
+  display: none; /* Hide canvas by default */
+  position: absolute;
+}
