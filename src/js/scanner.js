@@ -21,7 +21,6 @@ async function startScanning() {
 
     // Show canvas
     canvas.style.display = 'block';
-    videoElement.style.display = 'none';
 
     // Start scanning loop
     animationFrameId = requestAnimationFrame(drawCanvas);
