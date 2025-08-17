@@ -1,57 +1,41 @@
-/* Container for the scanner elements */
-#qr-reader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem;
-    background-color: #F5F5F7;
-    min-height: 100vh;
+#qr-reader{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #F5F5F7; /* deep navy background */
+  padding: 1rem;
 }
 
-/* Container for the video and canvas elements */
-.scanner-video-container {
-    position: relative;
-    max-width: 500px; /* Constrain the width */
-    width: 100%;
-    margin-bottom: 1.5rem; /* Add space below the video */
-    aspect-ratio: 16 / 9; /* Ensure a consistent aspect ratio */
+#qr-reader #reader {
+  width: 40vw;
+  height: 40vh;
+  border: 2px solid #58C8C4; /* aqua border */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Styles for the video and canvas to fit the container */
-#reader,
+/* Submit Button */
+#qr-reader #controls button {
+  margin: 1vh;
+  padding: 5px;
+  background-color: #58C8C4; /* aqua button */
+  color: #162E51; /* navy text */
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+#qr-reader #controls button:hover {
+  background-color: #4B6070; /* darker aqua on hover */
+  color: #FEFFFF; /* white text on hover */
+}
+
+
 #canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #58C8C4;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    display: none; /* Keep them hidden initially */
-}
-
-/* Styles for the buttons */
-#controls {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-#controls button {
-    padding: 12px 24px;
-    background-color: #58C8C4;
-    color: #162E51;
-    font-weight: bold;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#controls button:hover {
-    background-color: #4B6070;
-    color: #FEFFFF;
+  display: none; /* Hide canvas by default */
+  position: absolute;
 }
