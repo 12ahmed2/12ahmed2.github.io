@@ -6,9 +6,10 @@ function onScanSuccess(decodedText, decodedResult) {
   }
 
 function onScanFailure(error) {
-    alert(`Error scanning QR code: ${error}`);
+    // alert(`Error scanning QR code: ${error}`);
   }
 
 let html5QrcodeScanner = new Html5QrcodeScanner(
 "qr-reader", { fps: 10, qrbox: 250 });
+
 html5QrcodeScanner.render(onScanSuccess, onScanFailure);
