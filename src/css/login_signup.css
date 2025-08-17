@@ -1,0 +1,94 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/* Page Container */
+.login-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #162E51; /* deep navy background */
+  padding: 1rem;
+}
+
+/* Heading */
+.login-container h2,
+.signup-container h2 {
+  color: #58C8C4; /* aqua heading */
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Form Styling */
+.login-container form,
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px;
+  background-color: #FEFFFF; /* white form background */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields */
+.login-container input,
+.signup-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #4B6070; /* darker accent border */
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-container input:focus,
+.signup-container input:focus {
+  border-color: #58C8C4; /* aqua accent on focus */
+  box-shadow: 0 0 8px rgba(88, 200, 196, 0.5);
+}
+
+/* Submit Button */
+.login-container button,
+.signup-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #58C8C4; /* aqua button */
+  color: #162E51; /* navy text */
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-container button:hover,
+.signup-container button:hover {
+  background-color: #4B6070; /* darker hover */
+  color: #FEFFFF; /* white text on hover */
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-container form,
+  .signup-container form {
+    padding: 1.5rem;
+  }
+
+  .login-container h2,
+  .signup-container h2 {
+    font-size: 1.8rem;
+  }
+}
