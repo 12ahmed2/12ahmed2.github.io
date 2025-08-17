@@ -19,6 +19,9 @@ async function startScanning() {
     videoElement.srcObject = cameraStream;
     await videoElement.play();
 
+    // Show canvas
+    canvas.style.display = 'block';
+
     // Start scanning loop
     animationFrameId = requestAnimationFrame(drawCanvas);
 
@@ -45,6 +48,7 @@ function stopScanning() {
     cameraStream = null;
   }
 
+  canvas.style.display = 'none';
   startButton.disabled = false;
   stopButton.disabled = true;
 }
