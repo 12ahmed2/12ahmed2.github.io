@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Project</title>
-    
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/scanner.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Project</title>
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/scanner.css">
 </head>
 <body>
+  <!-- Loading Page -->
+  <div id="loading_page">
+    <img src="../Imgs/logo.png" alt="logo" class="logo">
+    <h1>Welcome</h1>
+  </div>
 
-    <!-- Loading Page -->
-    <div id="loading_page">
-        <!-- Main content will be injected here -->
-        <img src="../Imgs/logo.png" alt="logo" class="logo">
-        <h1>Welcome</h1>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="logo">Scan Health</div>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-btn"></label>
+    <ul class="nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="./scanner.html" class="active">Scanner</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="./login.html">Login</a></li>
+      <li><a href="./signup.html">Signup</a></li>
+    </ul>
+  </nav>
+
+  <!-- Scanner Section -->
+  <section id="qr-reader">
+    <h1 class="scanner-title">QR Code Scanner</h1>
+    <p class="scanner-subtitle">Secure medical QR code scanning with real-time camera access.</p>
+
+    <!-- Frame -->
+    <div class="scanner-frame">
+      <video id="reader" autoplay playsinline muted></video>
+      <canvas id="canvas"></canvas>
+      <div class="overlay"></div>
+      <div id="placeholder">
+        <p>Camera Preview</p>
+        <small>Grant camera permission to start</small>
+      </div>
     </div>
-    <!-- end of Loading Page -->
 
+    <!-- Controls -->
+    <div id="controls">
+      <button id="start-button">▶ Start Scanning</button>
+      <button id="stop-button" disabled>■ Stop Scanning</button>
+    </div>
 
-    <!-- navbar -->
-    <nav class="navbar">
-        <div class="logo">Scan Health</div>
+    <!-- Result Box -->
+    <div id="qr-result">
+      <h3>Scan Result</h3>
+      <div class="result-box">
+        <span id="result">No QR code detected yet...</span>
+      </div>
+    </div>
+  </section>
 
-        <!-- Checkbox Hack -->
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="menu-btn"></label>
-
-        <ul class="nav-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="./scanner.html">Scanner</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="./login.html">Login</a></li>
-        <li><a href="./signup.html">Signup</a></li>
-        </ul>
-    </nav>
-    <!-- end of navbar -->
-
-    <section id="qr-reader">
-        <video id="reader" ></video>
-        <canvas id="canvas"></canvas>
-
-        <div id="controls">
-            <button id="start-button">Start Scanning</button>
-            <button id="stop-button">Stop Scanning</button>
-        </div>
-        <div id="qr-result">Scanned Code: <span id="result"></span></div>
-    </section>
-
-    
-
-    <script src="../js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
-    <script src="../js/scanner.js"></script>
-    
+  <script src="../js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <script src="../js/scanner.js"></script>
 </body>
 </html>
