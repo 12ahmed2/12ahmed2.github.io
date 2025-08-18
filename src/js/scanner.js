@@ -2,7 +2,7 @@
 const startButton = document.getElementById('start-button');
 const stopButton = document.getElementById('stop-button');
 const resultElement = document.getElementById('result');
-const videoElement = document.getElementById('reader'); // hidden video element
+const videoElement = document.getElementById('reader'); // visible video element
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
@@ -12,27 +12,22 @@ let animationFrameId = null;
 // Function to start scanning
 async function startScanning() {
   try {
-    resultElement.textContent = '';
+    resultElement.textContent = 'Scanning for QR codes...';
     
-    // Request camera access (HTTPS or localhost required)
+    // Request camera access
     cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
     videoElement.srcObject = cameraStream;
     await videoElement.play();
 
-    // Show canvas
-    canvas.style.display = 'block';
-
     // Start scanning loop
-    animationFrameId = requestAnimationFrame(drawCanvas);
+    animationFrameId = requestAnimationFrame(scanFrame);
 
     // Update buttons
     startButton.disabled = true;
     stopButton.disabled = false;
   } catch (err) {
     console.error("Camera access error:", err);
-    resultElement.textContent = "Error: Could not access camera. Make sure your site is HTTPS and permission is granted.";
-    startButton.disabled = false;
-    stopButton.disabled = true;
+    resultElement.textContent = "Error: Could not access camera. Use HTTPS and allow permissions.";
   }
 }
 
@@ -42,19 +37,16 @@ function stopScanning() {
     cancelAnimationFrame(animationFrameId);
     animationFrameId = null;
   }
-
   if (cameraStream) {
     cameraStream.getTracks().forEach(track => track.stop());
     cameraStream = null;
   }
-
-  canvas.style.display = 'none';
   startButton.disabled = false;
   stopButton.disabled = true;
 }
 
-// Function to draw video onto canvas and scan QR
-function drawCanvas() {
+// Function to process frames
+function scanFrame() {
   if (videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
     canvas.width = videoElement.videoWidth;
     canvas.height = videoElement.videoHeight;
@@ -65,15 +57,14 @@ function drawCanvas() {
     const code = jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: "dontInvert" });
 
     if (code) {
-      resultElement.textContent = code.data;
+      resultElement.textContent = `✅ QR Code Detected: ${code.data}`;
       stopScanning();
       return;
     }
   }
-
-  animationFrameId = requestAnimationFrame(drawCanvas);
+  animationFrameId = requestAnimationFrame(scanFrame);
 }
 
-// Attach button event listeners
+// Attach button listeners
 startButton.addEventListener('click', startScanning);
 stopButton.addEventListener('click', stopScanning);
